@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Users</title>
+    <!--  Стиль просто взят с интернета, для красоты проекта)-->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+            color: #fff;
+            background-color: #007BFF;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<form th:method="POST" th:action="@{/users/edit?id={id}(id=${user.getId()})}" th:object="${user}">
+  <label for="name">Enter Name</label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <br/>
+  <label for="lastname">Enter Last_Name</label>
+  <input type="text" th:field="*{lastName}" id="lastname"/>
+  <br/>
+  <input type="submit" value="UPDATE"/>
+</form>
+</body>
+</html>
